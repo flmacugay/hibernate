@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.username">studentdb</property>
+        <property name="hibernate.connection.password">qwer1234</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.generate_statistics">false</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <mapping class="com.mac.dto.UserDetails"/>
+        <mapping class="com.mac.dto.Address"/>
+        <mapping class="com.mac.dto.Qualification"/>
+        <mapping class="com.mac.dto.Car"/>
+        <mapping class="com.mac.dto.Bills"/>
+        <mapping class="com.mac.dto.Bike"/>
+        <!--
+        <mapping class="com.mac.dto.Address"/>
+        -->
+        <!-- 
+        <class-cache class="org.hibernate.jpa.test.Item" usage="read-write"/>
+        <collection-cache collection="org.hibernate.jpa.test.Item.distributors" usage="read-write" region="RegionName"/>
+        <event type="pre-insert"/>
+         -->
+    </session-factory>
+</hibernate-configuration>
