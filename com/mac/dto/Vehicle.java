@@ -13,12 +13,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table(name="VEHICLE")
 //@DiscriminatorColumn(name="VEHICLE_TYPE", discriminatorType=DiscriminatorType.CHAR)
 //@DiscriminatorValue("V")
 @Inheritance(strategy=InheritanceType.JOINED)
 @Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 public abstract class Vehicle {
 	
 	@Id
